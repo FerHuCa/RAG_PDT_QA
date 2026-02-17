@@ -12,11 +12,6 @@ class Settings(BaseSettings):
     llm_provider: str = "openai"
     openai_api_key: str = ""
 
-    # Ingestion local
-    sqlite_path: str = "data/chunks.db"
-    chunk_size: int = 500
-    chunk_overlap: int = 100
-
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

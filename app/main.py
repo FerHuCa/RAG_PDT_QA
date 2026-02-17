@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api.routes import router, storage
+from app.api.routes import router
 from app.core.config import settings
 
 app = FastAPI(
@@ -9,11 +9,5 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    storage.init_db()
-
 
 app.include_router(router)

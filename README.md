@@ -17,9 +17,6 @@ Plantilla base para construir un servicio **RAG (Retrieval-Augmented Generation)
 │   │   └── routes.py
 │   ├── core/
 │   │   └── config.py
-│   ├── services/
-│   │   ├── ingest.py
-│   │   └── storage.py
 │   └── main.py
 ├── docker/
 │   ├── Dockerfile
@@ -29,9 +26,7 @@ Plantilla base para construir un servicio **RAG (Retrieval-Augmented Generation)
 ├── scripts/
 │   └── run.sh
 ├── tests/
-│   ├── test_health.py
-│   ├── test_ingest_endpoint.py
-│   └── test_ingest_utils.py
+│   └── test_health.py
 ├── .env.example
 ├── Makefile
 └── pyproject.toml
@@ -48,20 +43,6 @@ make run
 Servicio disponible en:
 - API: http://localhost:8000
 - Swagger UI: http://localhost:8000/docs
-
-## Endpoint de ingestión PDF
-
-`POST /ingest` acepta `multipart/form-data` con un archivo `file` (PDF).
-
-Pipeline implementado:
-1. Extrae texto por página con **PyMuPDF**.
-2. Limpia espacios y normaliza texto.
-3. Aplica chunking con overlap configurable.
-4. Guarda chunks en **SQLite local** con metadata:
-   - `doc_id`
-   - `chunk_id`
-   - `page`
-   - `text`
 
 ## Ejecutar tests y calidad
 
