@@ -1,0 +1,10 @@
+services:
+  rag-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: rag-fastapi-service
+    env_file:
+      - ../.env
+    ports:
+      - "8000:8000"
